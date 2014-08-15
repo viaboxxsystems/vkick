@@ -8,13 +8,21 @@ Set up
 * bower install (installs bower components)
 
 
-Install gulp
-------------
+Build and run locally
+---------------------
 
 * To start gulp with live reload: `gulp watch`
 * To start gulp serving normally: `gulp serve`
 * Build (default): `gulp build`
 * Build distributable: `gulp zip`
+
+Deploy
+------
+
+* Download and extract built zip from https://tera.viaboxxsystems.de/jenkins/job/V-Kick/lastSuccessfulBuild/artifact/zip/archive.zip
+* cd into extracted dir
+* Do `npm install`
+* Run `node app.js`
 
 
 Images

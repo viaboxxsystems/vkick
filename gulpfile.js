@@ -76,7 +76,9 @@ gulp.task('default', ['clean'], function () {
 
 
 gulp.task('zip', ['build'], function(){
-   return  gulp.src('dist/**').pipe($.zip('archive.zip')).pipe(gulp.dest('zip/'));
+    return gulp.src(['prod/*','dist/**'])
+        .pipe($.zip('archive.zip'))
+        .pipe(gulp.dest('zip/'));
 });
 
 gulp.task('connect', function () {
