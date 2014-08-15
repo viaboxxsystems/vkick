@@ -83,6 +83,8 @@ body {
 }
 
 /* Overwrite Bootstrap classes */
+
+
 .label {
     display: block;
     margin: 10px;
@@ -117,7 +119,4 @@ body {
 .btn {
   font-size:150%;
 }
-
-
-.clicked { border: 2px; }
 

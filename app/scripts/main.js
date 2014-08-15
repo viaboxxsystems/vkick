@@ -60,7 +60,7 @@ $(function(){
         $(this).parents('.dropdown').children('.dropdown-toggle').text($(this).text());
     });
 
-    $('.playedAction').click(function() {
+    $('#playedAction').click(function() {
         var game = {
             team1: {
                 player1: $('#player1').text(),
@@ -73,5 +73,7 @@ $(function(){
                 goals: goals2
             }
         };
+
+
     });
 });
