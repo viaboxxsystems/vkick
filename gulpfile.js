@@ -65,13 +65,18 @@ gulp.task('extras', function () {
 });
 
 gulp.task('clean', function () {
-    return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.clean());
+    return gulp.src(['.tmp', 'dist','zip'], { read: false }).pipe($.clean());
 });
 
 gulp.task('build', ['html', 'images', 'fonts', 'extras']);
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
+});
+
+
+gulp.task('zip', ['build'], function(){
+   return  gulp.src('dist/**').pipe($.zip('archive.zip')).pipe(gulp.dest('zip/'));
 });
 
 gulp.task('connect', function () {
