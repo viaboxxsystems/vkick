@@ -34,58 +34,103 @@
 
     <div class="row">
         <div class="col-md-3">
-            <h4>Player</h4>
-            <ul id="playerList">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+            <h4>Players</h4>
+            <ul class="playerList">
+                <li class="label label-info">Roman Stumm</li>
+                <li class="label label-info">Jürgen Lüders</li>
+                <li class="label label-info">Thomas Nicolaisen</li>
+                <li class="label label-info">Jan Nonnen</li>
+                <li class="label label-info">Simon Tiffert</li>
+                <li class="label label-info">Hussam Khuder</li>
             </ul>
         </div>
         <div class="col-md-6">
             <div class="text-center">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>10</button>
+                <button class="btn btn-default">1</button>
+                <button class="btn btn-default">2</button>
+                <button class="btn btn-default">3</button>
+                <button class="btn btn-default">4</button>
+                <button class="btn btn-default">5</button>
+                <button class="btn btn-default">6</button>
+                <button class="btn btn-default">7</button>
+                <button class="btn btn-default">8</button>
+                <button class="btn btn-default">9</button>
+                <button class="btn btn-default">10</button>
             </div>
 
             <div class="row text-center">
                 <div class="col-md-3">
-                    Player 1
-                    <br />
-                    Player 2
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                            Player 1
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Simon Tiffert</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Jürgen Lüders</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">...</a></li>
+                        </ul>
+                    </div>
+
+                    <br/>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+                            Player 2
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Simon Tiffert</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Jürgen Lüders</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">...</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    Kicker
+                    <img class="img-rounded" width="300" height="600"/>
                 </div>
                 <div class="col-md-3">
-                    Player 3
+                    <div class="dropdown">
+                        <button class="btn btn-default btn-danger dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown">
+                            Player 3
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Simon Tiffert</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Jürgen Lüders</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">...</a></li>
+                        </ul>
+                    </div>
+
                     <br />
-                    Player 4
+
+                    <div class="dropdown">
+                        <button class="btn btn-default btn-danger dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown">
+                            Player 4
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Simon Tiffert</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Jürgen Lüders</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">...</a></li>
+                        </ul>
+                    </div>
+
                 </div>
 
             </div>
 
             <div class="text-center">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>10</button>
+                <button class="btn btn-danger">1</button>
+                <button class="btn btn-danger">2</button>
+                <button class="btn btn-danger">3</button>
+                <button class="btn btn-danger">4</button>
+                <button class="btn btn-danger">5</button>
+                <button class="btn btn-danger">6</button>
+                <button class="btn btn-danger">7</button>
+                <button class="btn btn-danger">8</button>
+                <button class="btn btn-danger">9</button>
+                <button class="btn btn-danger">10</button>
             </div>
             <div class="text-center">
                 <button>Played</button>
@@ -94,7 +139,37 @@
         <div class="col-md-3">
             <h4>Last Games</h4>
             <ul>
-                <li></li>
+                <li>
+                    <span class="">
+                        15.08.2014 10:05
+                    </span>
+                    <div>
+                        <div class="row text-center">
+                            <div class="col-md-6 text-center">
+                                Jürgen Lüders
+                                <br />
+                                +
+                                <br />
+                                Simon Tiffert
+                            </div>
+                            <div class="col-md-6 text-center">
+                                Jan Nonnen
+                                <br />
+                                +
+                                <br />
+                                Roman Stumm
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-md-6 text-center">
+                                10
+                            </div>
+                            <div class="col-md-6 text-center">
+                                5
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li></li>
                 <li></li>
                 <li></li>

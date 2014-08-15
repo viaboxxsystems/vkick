@@ -81,3 +81,13 @@ body {
         border-bottom: 0;
     }
 }
+
+/* Overwrite Bootstrap classes */
+.label {
+    display: block;
+    margin: 10px;
+}
+
+.playerList .label {
+    font-size: 120%;
+}
