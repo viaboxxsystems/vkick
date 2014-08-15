@@ -71,7 +71,8 @@ $(function(){
                 player3: $('#player3').text().trim(),
                 player4: $('#player4').text().trim(),
                 goals: goals2
-            }
+            },
+            time: moment()
         };
         saveMatch(game);
     });
