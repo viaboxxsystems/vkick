@@ -1,0 +1,11 @@
+{
+  "name": "vkick-webfrontend",
+  "version": "1.0.0",
+  "description": "Start a file server with connect",
+  "main": "app.js",
+  "scripts": {},
+  "dependencies": {
+    "connect": "^3.1.1",
+    "serve-static": "^1.5.2"
+  }
+}
