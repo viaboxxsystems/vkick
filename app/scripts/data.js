@@ -31,6 +31,6 @@ function saveMatch(matchData){
     });
 }
 
-function getMatches(){
-    return jQuery.getJSON('http://localhost:9001/match'); //can jquery do sync?
+function getMatches(callback){
+    return jQuery.getJSON('http://localhost:9001/match',null,callback);
 }

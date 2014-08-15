@@ -5,6 +5,12 @@
 console.log('\'Allo \'Allo!');
 
 var availablePlayers= retrievePlayer();
+var matches = getMatches(function(data){
+    //$('#lastGames >>> div.matches.panel-body').detach();
+    data.forEach(function(element){
+        $("<p>"+JSON.stringify(element)+"</p>").insertAfter('#lastGames > div.panel.panel-default');
+    });
+});
 
 
 /**
