@@ -2,7 +2,6 @@
   "name": "vkick",
   "version": "0.0.0",
   "dependencies": {
-    "restify": "~2.8.2"
   },
   "devDependencies": {
     "connect": "^2.14.4",

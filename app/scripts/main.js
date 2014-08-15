@@ -63,17 +63,16 @@ $(function(){
     $('#playedAction').click(function() {
         var game = {
             team1: {
-                player1: $('#player1').text(),
-                player2: $('#player2').text(),
+                player1: $('#player1').text().trim(),
+                player2: $('#player2').text().trim(),
                 goals: goals1
             },
             team2: {
-                player3: $('#player3').text(),
-                player4: $('#player4').text(),
+                player3: $('#player3').text().trim(),
+                player4: $('#player4').text().trim(),
                 goals: goals2
             }
         };
-
-
+        saveMatch(game);
     });
 });

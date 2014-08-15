@@ -16,6 +16,10 @@ Build and run locally
 * Build (default): `gulp build`
 * Build distributable: `gulp zip`
 
+Run the backend
+---------------
+Run `node backend/rest.js`
+
 Deploy
 ------
 
