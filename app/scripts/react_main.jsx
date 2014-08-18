@@ -12,20 +12,21 @@ var LastGamesList = React.createClass({
             dataType: 'json',
             success: function(data) {
                 console.log(data);
-                this.setState({matches: data.reverse()})
+                this.setState({matches: data.reverse()});
             }.bind(this)
-        })
+        });
     },
     componentWillMount: function() {
         this.loadMatches();
-        setInterval(this.loadMatches, this.props.pollInterval)
+        setInterval(this.loadMatches, this.props.pollInterval);
     },
     getInitialState: function() {
-        return {matches: []}
+        return {matches: []};
     },
 
     render: function(){
         var matchDivs= this.state.matches.map(function(match){
+            /* jshint ignore:start */
             return  (
                 <div className='panel panel-default'>
                  <div className='matches panel-heading text-center'>
@@ -48,17 +49,14 @@ var LastGamesList = React.createClass({
                  </div>
                 </div>
             );
+            /* jshint ignore:end */
         });
 
         return (
              <div>{matchDivs}</div>
         );
-    }
 
+
+    }
 });
-var lastMatches=[];
-getMatches()
-    .done(function( json ) {
-        lastMatches = json;
-    });
 React.renderComponent(<LastGamesList url='http://localhost:9001/match' pollInterval={2000}/>, document.querySelector('#lastGames'));

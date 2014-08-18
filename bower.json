@@ -6,8 +6,7 @@
     "modernizr": "~2.6.2",
     "jquery": "~1.11.0",
     "momentjs": "~2.8.1",
-    "react": "~0.11.1",
-    "react-bootstrap": "~0.11.1"
+    "react": "~0.11.1"
   },
   "devDependencies": {}
 }
