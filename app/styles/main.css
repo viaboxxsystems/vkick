@@ -105,7 +105,7 @@ body {
      line-height:46px;
 }
 .players{
-// border: 3px dashed #999;
+/* border: 3px dashed #999; */
 
 }
 
@@ -119,4 +119,3 @@ body {
 .btn {
   font-size:150%;
 }
-
