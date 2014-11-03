@@ -104,11 +104,24 @@ body {
     height: 150%;
      line-height:46px;
 }
-.players{
-/* border: 3px dashed #999; */
 
+.teamNone{
+    border: 3px dashed black;
+    color: #000000;
+    background: transparent;
 }
 
+.team1{
+    border: 3px dashed black;
+    color: #000000;
+    background: #d3d3d3;
+}
+
+.team2{
+    border: 3px dashed black;
+    color: #000000;
+    background: lightcoral;
+}
 
 *[draggable=true] {
   -moz-user-select:none;

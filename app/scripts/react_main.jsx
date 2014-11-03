@@ -11,7 +11,7 @@ var LastGamesList = React.createClass({
             url: this.props.url,
             dataType: 'json',
             success: function(data) {
-                console.log(data);
+                //console.log(data);
                 this.setState({matches: data.reverse()});
             }.bind(this)
         });
