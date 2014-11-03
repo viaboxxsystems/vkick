@@ -1,4 +1,22 @@
-var fs = require('fs');
+
+var locallydb = require('locallydb');
+var db = new locallydb('./vkick.db');
+
+var matches = db.collection('matches');
+var players = db.collection('players');
+
+if(players.items == undefined || players.items.length== 0) {
+    players.insert(
+        [
+            {'surname': 'Nicolaisen', 'name': 'Thomas', 'rfid': '1'},
+            {'surname': 'Nonnen', 'name': 'Jan', 'rfid': '2'},
+            {'surname': 'Stumm', 'name': 'Roman', 'rfid': '3'},
+            {'surname': 'Tiffert', 'name': 'Simon', 'rfid': '4'},
+            {'surname': 'Lüders', 'name': 'Jürgen', 'rfid': '5'},
+            {'surname': 'Lutz', 'name': 'Olli', 'rfid': '6'}
+        ]);
+}
+
 var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser');
@@ -24,39 +42,23 @@ var server = app.listen(9001, function() {
 /**
   * Routes
   */
-var playerResponse = [{ "name": "Thomas", "rfid": "1" },{ "name": "Jans", "rfid": "2" } ];
+
 app.get('/player', function(req, res){
-    res.send(playerResponse);
+    console.log(players.items);
+    res.send(players.items);
 });
 
-var matchesFile = './matches.txt';
+
 
 app.get('/match', function(req,res){
-    var matches = [];
-    if(fs.existsSync(matchesFile)){
-        var text = fs.readFileSync(matchesFile, {'encoding':'utf-8'});
-        // Break up the file into lines.
-        var lines = text.split('\n');
 
-        lines.forEach(function(line) {
-            if(line.length > 0){
-                var match = JSON.parse(line); //each line is a match object
-                matches.push(match);
-            } //else empty line
-        });
-    }
-
-    res.json(matches);
+    res.send(matches.items);
 });
 
 app.post('/match', function(req, res, next) {
-    console.log("Woot!", req.body);
-    // Writing results to file...
-    var fs = require("fs");
-    var newMatch = req.body;
 
-    fs.appendFile( matchesFile, JSON.stringify(newMatch)+'\n', "utf8", function(_){
-        console.log("Appended to file: " + newMatch + " | " + _);
-    });
+    var newMatch = req.body;
+    matches.insert(JSON.stringify(newMatch));
+
     res.status(201).send("OK");
 });

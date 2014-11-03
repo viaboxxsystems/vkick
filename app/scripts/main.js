@@ -4,7 +4,8 @@
 
 console.log('\'Allo \'Allo!');
 
-var availablePlayers= retrievePlayer();
+
+
 var matches = getMatches(function(data){
     //$('#lastGames >>> div.matches.panel-body').detach();
     data.forEach(function(element){
@@ -34,18 +35,8 @@ var matches = getMatches(function(data){
  */
 
 
-
-
 var goals1 = 0;
 var goals2 = 0;
-
-$('#playerList').empty();
-
-
-availablePlayers.forEach(function(element){
-    $('#playerList').append( '<li class="label label-info playerName">'+element.name+'</li>');
-    $('.dropdownPlayer').append('<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'+element.name+'</a></li>');
-});
 
 
 $('#goals1 .btn').click(function(){
