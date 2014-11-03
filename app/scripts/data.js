@@ -3,12 +3,12 @@
 
 function retrievePlayer(){
     return [
-    { 'name': 'Thomas Nicolaisen', 'rfid': '1' },
-    { 'name': 'Jan Nonnen', 'rfid': '2' },
-    { 'name': 'Roman Stumm', 'rfid': '3' },
-    { 'name': 'Jürgen Lüders', 'rfid': '4' },
-    { 'name': 'Simon Tiffert', 'rfid': '5' },
-    { 'name': 'Hussam Khuder', 'rfid': '6' }
+        { 'surname': 'Nicolaisen', 'name': 'Thomas', 'rfid': '1' },
+        { 'surname': 'Nonnen', 'name': 'Jan', 'rfid': '2' },
+        { 'surname': 'Stumm', 'name': 'Roman', 'rfid': '3' },
+        { 'surname': 'Tiffert', 'name': 'Simon', 'rfid': '4' },
+        { 'surname': 'Lüders', 'name': 'Jürgen', 'rfid': '5' },
+        { 'surname': 'Lutz', 'name': 'Olli', 'rfid': '6' }
     ];
 }
 
