@@ -30,12 +30,6 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <a class="navbar-brand" href="#">Viaboxx V-Kick</a>
         </div>
 
@@ -51,103 +45,7 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-3 players" >
-            <h4>Players</h4>
-            <div id="players"></div>
-        </div>
-        <div class="col-md-6">
-            <div class="text-center" id="goals1">
-                <button class="btn btn-default">1</button>
-                <button class="btn btn-default">2</button>
-                <button class="btn btn-default">3</button>
-                <button class="btn btn-default">4</button>
-                <button class="btn btn-default">5</button>
-                <button class="btn btn-default">6</button>
-                <button class="btn btn-default">7</button>
-                <button class="btn btn-default">8</button>
-                <button class="btn btn-default">9</button>
-                <button class="btn btn-default">10</button>
-            </div>
-
-            <div class="row text-center ">
-                <div class="col-md-3">
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="player1" data-toggle="dropdown">
-                            Player 1
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu dropdownPlayer" role="menu" aria-labelledby="player1">
-                          <!-- Placeholder for dropdownplayers -->
-                        </ul>
-                    </div>
-
-                    <br/>
-
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle droppable" type="button" id="player2" data-toggle="dropdown">
-                            Player 2
-                            <span class="caret"></span>
-                            <div id="placeholder2"></div>
-                        </button>
-                        <ul  class="dropdown-menu dropdownPlayer" role="menu" aria-labelledby="player2">
-                          <!-- Placeholder for dropdownplayers -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <img class="img-rounded" src="images/kicker.jpg" width="300" height="600"/>
-                </div>
-                <div class="col-md-3">
-                    <div class="dropdown ">
-                        <button class="btn btn-default btn-danger dropdown-toggle" type="button" id="player3" data-toggle="dropdown" href="#">
-                            Player 3
-                            <span class="caret"></span>
-                        </button>
-                        <ul  class="dropdown-menu dropdownPlayer" role="menu" aria-labelledby="player3">
-                            <!-- Placeholder for dropdownplayers -->
-                        </ul>
-                    </div>
-
-
-                    <br />
-
-                    <div class="dropdown">
-                        <button class="btn btn-default btn-danger dropdown-toggle" type="button" id="player4" data-toggle="dropdown">
-                            Player 4
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu dropdownPlayer" role="menu" aria-labelledby="player4">
-                          <!-- Placeholder for dropdownplayers -->
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="text-center" id="goals2">
-                <button class="btn btn-danger">1</button>
-                <button class="btn btn-danger">2</button>
-                <button class="btn btn-danger">3</button>
-                <button class="btn btn-danger">4</button>
-                <button class="btn btn-danger">5</button>
-                <button class="btn btn-danger">6</button>
-                <button class="btn btn-danger">7</button>
-                <button class="btn btn-danger">8</button>
-                <button class="btn btn-danger">9</button>
-                <button class="btn btn-danger">10</button>
-            </div>
-            <div class="text-center">
-                <button id="playedAction" class="btn btn-default btn-lg" style="margin-top: 50px;">Submit Game</button>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-        </div>
-
-
-    </div>
+    <div id="game"></div>
 
     <div class="footer text-center">
         <p>Viaboxx ♥ Table Soccer</p>

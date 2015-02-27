@@ -3,82 +3,55 @@
 var config = { backend: "http://localhost:9001"};
 
 var game =  new Object();
+game.team1 = { name: "Team 1", player1: null, player2: null, goals: 0};
+game.team2 = { name: "Team 2", player1: null, player2: null, goals: 0};
 
-game.addPlayerTeam1 = function(player){
-
+game.addPlayerTeam = function(player,team){
+     if(team.player1 == null ){
+         team.player1=player;
+         game.log();
+        return true;
+     } else if (team.player2 == null){
+         team.player2=player;
+         game.log();
+         return true;
+     }
+    game.log();
+    return false;
 }
 
+game.removePlayerTeam = function(player,team){
+    if(team.player1 == player ){
+        team.player1 = null;
+        game.log();
+        return true;
+    } else if (team.player2 == player){
+        team.player2 = null;
+        game.log();
+        return true;
+    }
+    game.log();
+    return false;
+}
+
+game.reset = function (){
+    game.team1 = { name: "Team 1", player1: null, player2: null, goals: 0};
+    game.team2 = { name: "Team 2", player1: null, player2: null, goals: 0};
+
+}
+game.log = function(){
+    console.log(game.team1);
+    console.log(game.team2);
+    console.log(game.team1.goals + ":"+game.team2.goals);
+}
+
+
+game.reset();
 
 console.log('\'Allo \'Allo!');
 
 
 
-var matches = getMatches(function(data){
-    //$('#lastGames >>> div.matches.panel-body').detach();
-    data.forEach(function(element){
-        $("<p>"+JSON.stringify(element)+"</p>").insertAfter('#lastGames > div.panel.panel-default');
-    });
-});
 
 
 
-/**
- *
- * {
- *
- *  team1 {
- *      player1: '...',
- *      player2: '...',
- *      goals: 10
- *   },
- *   team2 {
- *      player1: '...',
- *      player2: '...'
- *      goals: 4
- *    },
- *    timestamp: date()
- *  }
- *
- */
-
-
-var goals1 = 0;
-var goals2 = 0;
-
-
-$('#goals1 .btn').click(function(){
-   goals1 = $(this).text();
-   $('#goals1 .btn').not(this).removeClass('clicked');
-   $(this).addClass( 'clicked' );
-
-});
-
-
-$('#goals2 .btn').click(function(){
-    goals2 = $(this).text();
-    $('#goals2 .btn').not(this).removeClass('clicked');
-    $(this).addClass( 'clicked' );
-
-});
-$(function(){
-    $('.dropdown-menu').on('click', 'li a', function(){
-        $(this).parents('.dropdown').children('.dropdown-toggle').text($(this).text());
-    });
-
-    $('#playedAction').click(function() {
-        var game = {
-            team1: {
-                player1: $('#player1').text().trim(),
-                player2: $('#player2').text().trim(),
-                goals: goals1
-            },
-            team2: {
-                player3: $('#player3').text().trim(),
-                player4: $('#player4').text().trim(),
-                goals: goals2
-            },
-            time: moment()
-        };
-        saveMatch(game);
-    });
-});

@@ -22,6 +22,12 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 
 var app = express();
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -39,6 +45,24 @@ var server = app.listen(9001, function() {
 });
 
 
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+
+app.all('/match', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+
+app.all('/player', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+
 /**
   * Routes
   */
@@ -55,10 +79,11 @@ app.get('/match', function(req,res){
 });
 
 app.post('/match', function(req, res, next) {
-
     var newMatch = req.body;
+    console.log(newMatch);
     matches.insert(JSON.stringify(newMatch));
     matches.save();
+    console.log(newMatch);
 
     res.status(201).send("OK");
 });

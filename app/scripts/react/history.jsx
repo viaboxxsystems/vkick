@@ -23,12 +23,14 @@ var LastGamesList = React.createClass({
     },
 
     render: function(){
-        var matchDivs= this.state.matches.map(function(match){
+        var matchDivs= this.state.matches.map(function(jsonMatch){
+            var match = JSON.parse(jsonMatch);
+            var matchTime = new moment(match.time);
             /* jshint ignore:start */
             return  (
                 <div className='panel panel-default'>
                  <div className='matches panel-heading text-center'>
-                    <h4>{match.team1.goals}:{match.team2.goals} <small> - 14.08.14</small>
+                    <h4>{match.team1.goals}:{match.team2.goals} <small> - {matchTime.fromNow()}</small>
                     </h4>
                  </div>
                  <div className='matches panel-body'>
@@ -39,9 +41,9 @@ var LastGamesList = React.createClass({
                          {match.team1.player2}
                         </div>
                         <div className='col-md-6 text-center'>
-                        {match.team2.player3}
+                        {match.team2.player1}
                             <br />
-                         {match.team2.player4}
+                         {match.team2.player2}
                         </div>
                     </div>
                  </div>
