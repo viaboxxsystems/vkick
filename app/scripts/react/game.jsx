@@ -175,9 +175,6 @@ var Game = React.createClass({
 
                         <div className='row text-center '>
                             <div className='col-md-3'>
-                                <GamePlayer playerName='Player BA' />
-                                <GamePlayer playerName='Player BA' />
-                                <br/>
 
 
                             </div>
@@ -185,28 +182,7 @@ var Game = React.createClass({
                                 <img className='img-rounded' src='images/kicker.jpg' width='300' height='600'/>
                             </div>
                             <div className='col-md-3'>
-                                <div className='dropdown '>
-                                    <button className='btn btn-default btn-danger dropdown-toggle' type='button' id='player3' data-toggle='dropdown' href='#'>
-                                    Player 3
-                                        <span className='caret'></span>
-                                    </button>
-                                    <ul  className='dropdown-menu dropdownPlayer' role='menu' aria-labelledby='player3'>
 
-                                    </ul>
-                                </div>
-
-
-                                <br />
-
-                                <div className='dropdown'>
-                                    <button className='btn btn-default btn-danger dropdown-toggle' type='button' id='player4' data-toggle='dropdown'>
-                                    Player 4
-                                        <span className='caret'></span>
-                                    </button>
-                                    <ul className='dropdown-menu dropdownPlayer' role='menu' aria-labelledby='player4'>
-
-                                    </ul>
-                                </div>
 
                             </div>
 
