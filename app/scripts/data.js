@@ -2,7 +2,7 @@
 
 
 function retrievePlayers(callback){
-    return jQuery.getJSON('http://localhost:9001/player',null, callback);
+    return jQuery.getJSON(config.backend+'/player',null, callback);
 }
 
 
@@ -12,7 +12,7 @@ function saveMatch(matchData){
     // },"json");
     $.ajax({
         type: "POST",
-        url: "http://localhost:9001/match",
+        url: config.backend+"/match",
         // The key needs to match your method's input parameter (case-sensitive).
         data: JSON.stringify(matchData),
         contentType: "application/json; charset=utf-8",
@@ -25,5 +25,7 @@ function saveMatch(matchData){
 }
 
 function getMatches(callback){
-    return jQuery.getJSON('http://localhost:9001/match',null,callback);
+    return jQuery.getJSON(config.backend+ '/match',null,callback);
 }
+
+

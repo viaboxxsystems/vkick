@@ -3,8 +3,6 @@
 
 
 
-
-
 var LastGamesList = React.createClass({
     loadMatches: function() {
         $.ajax({
@@ -59,4 +57,4 @@ var LastGamesList = React.createClass({
 
     }
 });
-React.renderComponent(<LastGamesList url='http://localhost:9001/match' pollInterval={2000}/>, document.querySelector('#lastGames'));
+React.render(<LastGamesList url={config.backend+'/match'} pollInterval={2000}/>, document.querySelector('#lastGames'));

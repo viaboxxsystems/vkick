@@ -1,5 +1,12 @@
 'use strict';
 
+var config = { backend: "http://localhost:9001"};
+
+var game =  new Object();
+
+game.addPlayerTeam1 = function(player){
+
+}
 
 
 console.log('\'Allo \'Allo!');

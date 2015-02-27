@@ -2,7 +2,7 @@
 'use strict';
 
 
-var Player = React.createClass({
+var PlayerClass = React.createClass({
     getInitialState: function() {
         return { team: this.props.team};
     },
@@ -10,6 +10,7 @@ var Player = React.createClass({
     handleClick: function(event){
         if(this.state.team=="teamNone"){
             this.setState({team:"team1"});
+
         } else if(this.state.team=="team1"){
             this.setState({team:"team2"});
         } else{
@@ -26,7 +27,7 @@ var Player = React.createClass({
 });
 
 
-var PlayerList = React.createClass({
+var PlayerListClass = React.createClass({
     loadPlayer: function() {
         $.ajax({
             url: this.props.url,
@@ -65,6 +66,15 @@ var PlayerList = React.createClass({
 });
 
 
-React.renderComponent(<PlayerList url='http://localhost:9001/player'/>, document.querySelector('#players'));
+var GameClass = React.createClass({
+
+});
+
+
+
+
+var PlayerList = React.createFactory(PlayerListClass);
+var Player = React.createFactory(PlayerClass);
+React.render(<PlayerList url={config.backend+'/player'}/>, document.querySelector('#players'));
 
 

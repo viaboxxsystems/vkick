@@ -44,7 +44,6 @@ var server = app.listen(9001, function() {
   */
 
 app.get('/player', function(req, res){
-    console.log(players.items);
     res.send(players.items);
 });
 
@@ -59,6 +58,8 @@ app.post('/match', function(req, res, next) {
 
     var newMatch = req.body;
     matches.insert(JSON.stringify(newMatch));
+    matches.save();
 
     res.status(201).send("OK");
 });
+

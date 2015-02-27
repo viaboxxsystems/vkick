@@ -16,9 +16,9 @@ gulp.task('styles', function () {
 });
 
 gulp.task('jsx', function(){
-    return gulp.src('app/scripts/*.jsx')
+    return gulp.src('app/scripts/react/*.jsx')
         .pipe($.react())
-        .pipe(gulp.dest('.tmp/scripts/'));
+        .pipe(gulp.dest('.tmp/scripts/react/'));
 });
 
 gulp.task('scripts',['jsx'], function () {

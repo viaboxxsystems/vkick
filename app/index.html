@@ -27,11 +27,30 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div class="container">
-    <div class="header text-center">
-        <h3>V-Kick</h3>
-    </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Viaboxx V-Kick</a>
+        </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navigation">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Play Game <span class="sr-only">(current)</span></a></li>
+                <li><a href="history.html">History</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
     <div class="row">
         <div class="col-md-3 players" >
             <h4>Players</h4>
@@ -125,8 +144,6 @@
         </div>
 
         <div class="col-md-3">
-            <h4>Last Games</h4>
-            <div id="lastGames"> </div>
         </div>
 
 
@@ -157,10 +174,16 @@
 
 <!-- endbuild -->
 
-<!-- build:js scripts/react_component.js -->
-<script src="scripts/react_main.js"></script>
-<script src="scripts/react_players.js"></script>
+<!-- build:js scripts/react/component.js -->
+<script src="scripts/react/players.js"></script>
+<script src="scripts/react/game.js"></script>
 <!-- endbuild -->
+
+<!--
+<script src="scripts/react/history.jsx" type="text/jsx"></script>
+<script src="scripts/react/players.jsx" type="text/jsx"></script>
+<script src="scripts/react/game.jsx" type="text/jsx"></script>
+-->
 
 </body>
 </html>
