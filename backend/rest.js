@@ -45,24 +45,6 @@ var server = app.listen(9001, function() {
 });
 
 
-app.all('/', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-});
-
-app.all('/match', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-});
-
-app.all('/player', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-});
-
 /**
   * Routes
   */
@@ -74,7 +56,6 @@ app.get('/player', function(req, res){
 
 
 app.get('/match', function(req,res){
-
     res.send(matches.items);
 });
 

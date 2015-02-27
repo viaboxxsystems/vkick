@@ -98,13 +98,6 @@ body {
     line-height:46px;
     margin: 10px;
 }
-.playerList .label {
-    font-size: 150%;
-    width: 100%;
-    height: 150%;
-     line-height:46px;
-}
-
 .teamNone{
     border: 3px dashed black;
     color: #000000;
@@ -140,4 +133,40 @@ body {
 
 .team2color {
     background: lightcoral;
+}
+
+.goalbutton {
+    font-size: 150%;
+    padding:  20px;
+    margin:  10px;
+}
+
+.players ul li{
+    display: inline;
+}
+
+.players .label {
+    font-size: 150%;
+    width: 150%;
+    height: 200%;
+    line-height:200%;
+    padding-left:  40px;
+    padding-right:  40px;
+
+}
+
+.horizontal-table {
+    display: table;   /* Allow the centering to work */
+    margin: 0 auto;
+    padding-bottom: 25px;
+}
+
+ul .horizontal-list {
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+}
+ul .horizontal-list li {
+    display: inline;
+
 }

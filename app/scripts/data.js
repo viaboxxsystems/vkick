@@ -34,7 +34,7 @@ function saveMatch(matchData){
         data:  JSON.stringify(matchData),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function(data){alert(data);},
+        success: function(data){alert(matchData);},
         failure: function(errMsg) {
             alert(errMsg);
         }

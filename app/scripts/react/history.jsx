@@ -25,7 +25,7 @@ var LastGamesList = React.createClass({
     render: function(){
         var matchDivs= this.state.matches.map(function(jsonMatch){
             var match = JSON.parse(jsonMatch);
-            var matchTime = new moment(match.time);
+            var matchTime =  moment(match.time);
             /* jshint ignore:start */
             return  (
                 <div className='panel panel-default'>

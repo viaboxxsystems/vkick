@@ -18,6 +18,7 @@ gulp.task('styles', function () {
 gulp.task('jsx', function(){
     return gulp.src('app/scripts/react/*.jsx')
         .pipe($.react())
+    //    .pipe($.browserify())
         .pipe(gulp.dest('.tmp/scripts/react/'));
 });
 
