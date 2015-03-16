@@ -4,7 +4,7 @@
 var connect = require('connect'),
     http = require('http'),
     config = {
-        app: '.',
+        app: '../dist',
         port: 9000
     };
 var serveStatic = require('serve-static');

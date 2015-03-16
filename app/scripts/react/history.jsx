@@ -1,4 +1,7 @@
 /** @jsx React.DOM **/
+(function(React,  Reflux,global) {
+
+
 'use strict';
 
 
@@ -36,14 +39,14 @@ var LastGamesList = React.createClass({
                  <div className='matches panel-body'>
                     <div className='row text-center'>
                         <div className='col-md-6 text-center'>
-                        {match.team1.player1}
+                        {match.team1.offense}
                             <br />
-                         {match.team1.player2}
+                         {match.team1.defense}
                         </div>
                         <div className='col-md-6 text-center'>
-                        {match.team2.player1}
+                        {match.team2.defense}
                             <br />
-                         {match.team2.player2}
+                         {match.team2.offense}
                         </div>
                     </div>
                  </div>
@@ -59,4 +62,11 @@ var LastGamesList = React.createClass({
 
     }
 });
-React.render(<LastGamesList url={config.backend+'/match'} pollInterval={2000}/>, document.querySelector('#lastGames'));
+
+
+React.render(
+    React.createElement(LastGamesList,{url:config.backend+'/match', pollInterval:2000}), document.querySelector('#lastGames')
+);
+
+
+})(window.React, window.Reflux, window);

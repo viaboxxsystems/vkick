@@ -78,6 +78,8 @@ var PlayerList = React.createClass({
 });
 
 
+
+
 var Goals = React.createClass({
     getInitialState: function(){
         return {goals: 0};
@@ -86,16 +88,20 @@ var Goals = React.createClass({
 
     handleClick: function(i){
         this.props.team.goals=i;
-
-        console.log(i);
-        game.log();
+        this.setState({goals: i});
     },
 
     render: function(){
         var rows = [];
 
         for (var i=0; i < 11; i++) {
-            rows.push( <button key={i} className={'btn btn-default goalbutton '+ this.props.teamclassName} onClick={this.handleClick.bind(this, i)}>{i}</button>);
+            var highlight;
+            if(i==this.state.goals){
+                highlight ='goalbutton highlight';
+            }    else {
+                highlight ='goalbutton';
+            }
+            rows.push(<button key={i} className={'btn  '+highlight+' '+ this.props.teamclassName } onClick={this.handleClick.bind(this, i)}>{i}</button>);
         }
         return (
             <div>
@@ -113,7 +119,7 @@ var GamePlayer = React.createClass({
             Player 2
                 <span className='caret'></span>
                 <div id='placeholder2'></div>
-            </button>
+            </button>btn-default
             <ul  className='dropdown-menu dropdownPlayer' role='menu' aria-labelledby='player2'>
 
             </ul>
@@ -142,13 +148,13 @@ var Game = React.createClass({
     submitGame: function(){
         var storeGame =   {
             team1: {
-                player1: game.team1.player1,
-                player2: game.team1.player2,
+                player1: { player: game.team1.player1, role:"offense"},
+                player2: { player: game.team1.player2, role:"defense"},
                 goals: game.team1.goals
             },
             team2: {
-                player1: game.team2.player1,
-                player2: game.team2.player2,
+                player1: { player: game.team2.player1, role:"offense"},
+                player2: { player: game.team2.player2, role:"defense"},
                 goals: game.team2.goals
             },
             time: moment()
@@ -179,7 +185,7 @@ var Game = React.createClass({
 
                             </div>
                             <div className='col-md-6'>
-                                <img className='img-rounded' src='images/kicker.jpg' width='300' height='600'/>
+                                <img className='img-rounded' src='images/kicker.png' />
                             </div>
                             <div className='col-md-3'>
 

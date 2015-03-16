@@ -61,6 +61,8 @@ body {
 
 
 
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     /* Remove the padding we set earlier */
@@ -126,20 +128,35 @@ body {
   font-size:150%;
 }
 
+/* Remove the blue glimmer on button focus/active */
+.btn:focus,.btn:active {
+    outline: none !important;
+}
+
 
 .team1color {
-    background: #d3d3d3;
+    background-color: #d3d3d3;
 }
 
 .team2color {
-    background: lightcoral;
+    background-color: lightcoral;
 }
+
+
 
 .goalbutton {
     font-size: 150%;
     padding:  20px;
     margin:  10px;
 }
+
+.goalbutton.highlight {
+    border: 3px solid black;
+    font-size: 150%;
+    padding:  20px;
+    margin:  10px;
+}
+
 
 .players ul li{
     display: inline;
