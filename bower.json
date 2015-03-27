@@ -8,7 +8,9 @@
     "momentjs": "~2.9.0",
     "react": "~0.13.0",
     "reflux": "~0.2.5",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "elasticsearch":"~4.0.1"
+
   },
   "devDependencies": {}
 }
