@@ -8,14 +8,17 @@
 
 var LastGamesList = React.createClass({
     loadMatches: function() {
-        $.ajax({
-            url: this.props.url,
-            dataType: 'json',
-            success: function(data) {
-                //console.log(data);
-                this.setState({matches: data.reverse()});
-            }.bind(this)
-        });
+
+
+        var self=this;
+        getMatches(
+            function (resp) {
+                var data = resp.hits.hits.map(function (match) {
+                    return match._source;
+                });
+                self.setState({matches: data.reverse()});
+            });
+
     },
     componentWillMount: function() {
         this.loadMatches();
@@ -26,27 +29,27 @@ var LastGamesList = React.createClass({
     },
 
     render: function(){
-        var matchDivs= this.state.matches.map(function(jsonMatch){
-            var match = JSON.parse(jsonMatch);
+        var matchDivs= this.state.matches.map(function(match){
             var matchTime =  moment(match.time);
             /* jshint ignore:start */
             return  (
                 <div className='panel panel-default'>
                  <div className='matches panel-heading text-center'>
-                    <h4>{match.team1.goals}:{match.team2.goals} <small> - {matchTime.fromNow()}</small>
+                    <h4><small>{matchTime.fromNow()}</small>
                     </h4>
                  </div>
                  <div className='matches panel-body'>
                     <div className='row text-center'>
-                        <div className='col-md-6 text-center'>
-                        {match.team1.offense}
+                        <div className='col-md-4 text-center'>
+                            <i className={game.playerIcon('defense')}></i> {match.team1.defense}
                             <br />
-                         {match.team1.defense}
+                            <i className={game.playerIcon('offense')}></i> {match.team1.offense}
                         </div>
-                        <div className='col-md-6 text-center'>
-                        {match.team2.defense}
+                        <div className='col-md-4 text-center'> <h4>{match.team1.goals}:{match.team2.goals}</h4></div>
+                        <div className='col-md-4 text-center'>
+                            <i className={game.playerIcon('offense')}></i> {match.team2.offense}
                             <br />
-                         {match.team2.offense}
+                            <i className={game.playerIcon('defense')}></i> {match.team2.defense}
                         </div>
                     </div>
                  </div>
@@ -65,7 +68,7 @@ var LastGamesList = React.createClass({
 
 
 React.render(
-    React.createElement(LastGamesList,{url:config.backend+'/match', pollInterval:2000}), document.querySelector('#lastGames')
+    React.createElement(LastGamesList,{pollInterval:10000}), document.querySelector('#lastGames')
 );
 
 

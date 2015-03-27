@@ -8,30 +8,36 @@ var Player = React.createClass({
         return { team: this.props.team};
     },
 
+
+
+
+
+
     handleClick: function(event){
         if(this.state.team==='teamNone'){
             if(game.addPlayerTeam(this.props.name, game.team1)) {
-                this.setState({team:'team1'});
+                this.setState({team:'team1', role: game.role(this.props.name, game.team1)});
             }   else if (game.addPlayerTeam(this.props.name, game.team2)) {
-                this.setState({team: 'team2'});
+                this.setState({team: 'team2', role: game.role(this.props.name, game.team2)});
             }
         } else if(this.state.team==='team1'){
             if(game.addPlayerTeam(this.props.name, game.team2)) {
                 game.removePlayerTeam(this.props.name, game.team1);
-                this.setState({team:'team2'});
+                this.setState({team:'team2',role: game.role(this.props.name, game.team2)});
             }   else {
                 game.removePlayerTeam(this.props.name, game.team1);
-                this.setState({team: 'teamNone'});
+                this.setState({team: 'teamNone', role: undefined});
             }
         } else{
             game.removePlayerTeam(this.props.name, game.team2);
-            this.setState({team:'teamNone'});
+            this.setState({team:'teamNone', role: undefined});
         }
     },
 
     render: function(){
+        var role = game.playerIcon(this.state.role);
         return (
-            <li className={'label label-info playerName '+ this.state.team} onClick={this.handleClick}>{this.props.name}</li>
+            <li className={'label label-info playerName '+ this.state.team} onClick={this.handleClick}> <i className={role}></i> {this.props.name}</li>
         );
     }
 
@@ -39,20 +45,24 @@ var Player = React.createClass({
 
 
 var PlayerList = React.createClass({
-    loadPlayer: function() {
-        $.ajax({
-            url: this.props.url,
-            dataType: 'json',
-            success: function (data) {
-                this.setState({players: data});
-            }.bind(this)
-        });
-    },
-    componentWillMount: function() {
-        this.loadPlayer();
-    },
     getInitialState: function() {
         return {players: []};
+    },
+
+    loadPlayer: function() {
+        var self = this;
+        retrievePlayers(function (resp) {
+            var foundPlayers = resp.hits.hits.map(function(player){
+                return { name: player._source.name, surname: player._source.surname};
+            });
+            self.setState({players: foundPlayers });
+        });
+
+
+
+    },
+    componentDidMount: function() {
+        this.loadPlayer();
     },
 
 
@@ -146,21 +156,8 @@ var TeamPlayer = React.createClass({
 
 var Game = React.createClass({
     submitGame: function(){
-        var storeGame =   {
-            team1: {
-                player1: { player: game.team1.player1, role:"offense"},
-                player2: { player: game.team1.player2, role:"defense"},
-                goals: game.team1.goals
-            },
-            team2: {
-                player1: { player: game.team2.player1, role:"offense"},
-                player2: { player: game.team2.player2, role:"defense"},
-                goals: game.team2.goals
-            },
-            time: moment()
 
-        };
-        saveMatch(storeGame);
+        saveMatch(game);
 
     },
 

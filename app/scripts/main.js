@@ -1,18 +1,26 @@
 'use strict';
 
-var config = { backend: "http://localhost:9001"};
 
 var game =  new Object();
-game.team1 = { name: "Team 1", player1: null, player2: null, goals: 0};
-game.team2 = { name: "Team 2", player1: null, player2: null, goals: 0};
+game.team1 = { name: "Team 1", offense: null, defense: null, goals: 0};
+game.team2 = { name: "Team 2", offense: null, defense: null, goals: 0};
 
+game.role= function(player, team) {
+    if(team.offense == player){
+        return 'offense';
+    }
+    if(team.defense == player){
+        return 'defense';
+    }
+    return undefined;
+}
 game.addPlayerTeam = function(player,team){
-     if(team.player1 == null ){
-         team.player1=player;
+     if(team.offense == null ){
+         team.offense=player;
          game.log();
-        return true;
-     } else if (team.player2 == null){
-         team.player2=player;
+         return true;
+     } else if (team.defense == null){
+         team.defense=player;
          game.log();
          return true;
      }
@@ -21,12 +29,12 @@ game.addPlayerTeam = function(player,team){
 }
 
 game.removePlayerTeam = function(player,team){
-    if(team.player1 == player ){
-        team.player1 = null;
+    if(team.offense == player ){
+        team.offense = null;
         game.log();
         return true;
-    } else if (team.player2 == player){
-        team.player2 = null;
+    } else if (team.defense == player){
+        team.defense = null;
         game.log();
         return true;
     }
@@ -35,8 +43,8 @@ game.removePlayerTeam = function(player,team){
 }
 
 game.reset = function (){
-    game.team1 = { name: "Team 1", player1: null, player2: null, goals: 0};
-    game.team2 = { name: "Team 2", player1: null, player2: null, goals: 0};
+    game.team1 = { name: "Team 1", offense: null, defense: null, goals: 0};
+    game.team2 = { name: "Team 2", offense: null, defense: null, goals: 0};
 
 }
 game.log = function(){
@@ -48,55 +56,16 @@ game.log = function(){
 
 game.reset();
 
-console.log('\'Allo \'Allo!');
 
 
-
-
-
-
-
-
-function retrievePlayers(callback){
-    return jQuery.getJSON(config.backend+'/player',null, callback);
-}
-
-
-
-/**
- *
- * {
- *
- *  team1 {
- *      player1: '...',
- *      player2: '...',
- *      goals: 10
- *   },
- *   team2 {
- *      player1: '...',
- *      player2: '...'
- *      goals: 4
- *    },
- *    timestamp: date()
- *  }
- *
- */
-
-function saveMatch(matchData){
-    $.ajax({
-        type: 'POST',
-        url: config.backend+'/match',
-        // The key needs to match your method's input parameter (case-sensitive).
-        data:  JSON.stringify(matchData),
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        success: function(data){ game.reset();},
-        failure: function(errMsg) {
-            alert(errMsg);
-        }
-    });
-}
-
-function getMatches(callback){
-    return jQuery.getJSON(config.backend+ '/match',null,callback);
+game.playerIcon= function(role){
+    switch(role){
+        case 'defense':
+            return 'fa fa-shield';
+            break;
+        case 'offense':
+            return 'fa fa-futbol-o';
+            break;
+    }
+    return '';
 }
