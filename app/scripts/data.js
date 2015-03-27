@@ -2,7 +2,7 @@
 
 
 var client = new $.es.Client({
-    hosts: 'http://localhost:9200/',
+    hosts: 'https://localhost:9200/',
     log: 'trace'
 });
 
