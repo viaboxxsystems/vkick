@@ -2,7 +2,7 @@
 
 
 var client = new $.es.Client({
-    hosts: 'http://vkick.viaboxxsystems.de/api',
+    hosts: 'https://vkick.viaboxxsystems.de/api',
     log: 'trace'
 });
 
