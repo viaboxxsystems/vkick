@@ -67,6 +67,11 @@ function retrievePlayers(callback){
  */
 
 function saveMatch(game){
+    var winnerTeam;
+    if(game.team1.goals == 10)
+        winnerTeam= "team1";
+    if(game.team2.goals == 10)
+        winnerTeam="team2";
 
     var storeGame =   {
         team1: {
@@ -79,8 +84,8 @@ function saveMatch(game){
             defense: game.team2.defense,
             goals: game.team2.goals
         },
-        time: moment()
-
+        time: moment(),
+        winner: winnerTeam
     };
     var runninggame = game;
 
